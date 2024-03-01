@@ -1,8 +1,9 @@
-﻿#pragma warning disable CS8604
+﻿#pragma warning disable CA1303
+#pragma warning disable CS8604
 
 namespace CryptoLabs.MenuItems;
 
-internal class MenuItemTerm_1Lab_6 : MenuItemCore
+internal sealed class MenuItemTerm_1Lab_6 : MenuItemCore
 {
 	private static readonly byte [] keys = [1, 2, 3, 4, 5, 0];
 
@@ -41,7 +42,7 @@ internal class MenuItemTerm_1Lab_6 : MenuItemCore
 
 			else if (input == 1)
 			{
-				OpenFileDialog openFileDialog = new()
+				using OpenFileDialog openFileDialog = new()
 				{
 					Filter = "All files (*.*)|*.*",
 					Title = "Choose a file to encrypt"
@@ -62,7 +63,7 @@ internal class MenuItemTerm_1Lab_6 : MenuItemCore
 			else if (input == 2)
 			{
 				// Открываем диалоговое окно для выбора файла для расшифровки
-				OpenFileDialog openFileDialog = new()
+				using OpenFileDialog openFileDialog = new()
 				{
 					Filter = "All files (*.*)|*.*",
 					Title = "Choose a file to decrypt"

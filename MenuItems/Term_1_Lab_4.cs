@@ -1,9 +1,11 @@
-﻿using System.Numerics;
+﻿#pragma warning disable CA1303
+
+using System.Numerics;
 using System.Text;
 
 namespace CryptoLabs.MenuItems;
 
-internal class MenuItemTerm_1Lab_4 : MenuItemCore
+internal sealed class MenuItemTerm_1Lab_4 : MenuItemCore
 {
 	internal override string Title => $"Transposition cipher bruteforce";
 
@@ -85,7 +87,7 @@ internal class MenuItemTerm_1Lab_4 : MenuItemCore
 	}
 }
 
-internal class MenuItemTerm_1Lab_4_old : MenuItemCore
+internal sealed class MenuItemTerm_1Lab_4_old : MenuItemCore
 {
 	internal override string Title => $"Transposition cipher bruteforce";
 
@@ -140,7 +142,7 @@ internal class MenuItemTerm_1Lab_4_old : MenuItemCore
 				foreach (char ch in ciphertext)
 				{
 					// Находим индекс символа в алфавите
-					int x = alphabet.IndexOf(ch);
+					int x = alphabet.IndexOf(ch, StringComparison.CurrentCulture);
 
 					// Применяем формулу дешифрования аффинного шифра
 					int decryptedX = modInverseA * (x - b + alphabet.Length) % alphabet.Length;

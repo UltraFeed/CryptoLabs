@@ -1,21 +1,22 @@
-﻿#pragma warning disable CS8604
+﻿#pragma warning disable CA1303
+#pragma warning disable CS8604
 
 using System.Collections;
 
 namespace CryptoLabs.MenuItems;
 
-internal class MenuItemTerm_1Lab_5 : MenuItemCore
+internal sealed class MenuItemTerm_1Lab_5 : MenuItemCore
 {
 	internal override string Title => $"S-box";
 
 	// Задаём наш S-блок
-	private static readonly byte [,] sBlockArray =
-		{
-				{ 4, 11, 2, 14, 15, 0, 8, 13, 3, 12, 9, 7, 5, 10, 6, 1 },
-				{ 13, 0, 11, 7, 4, 9, 1, 10, 14, 3, 5, 12, 2, 15, 8, 6 },
-				{ 1, 4, 11, 13, 12, 3, 7, 14, 10, 15, 6, 8, 0, 5, 9, 2 },
-				{ 6, 11, 13, 8, 1, 4, 10, 7, 9, 5, 0, 15, 14, 2, 3, 12 }
-		};
+	private static readonly byte [] [] sBlockArray =
+	[
+	[4, 11, 2, 14, 15, 0, 8, 13, 3, 12, 9, 7, 5, 10, 6, 1],
+	[13, 0, 11, 7, 4, 9, 1, 10, 14, 3, 5, 12, 2, 15, 8, 6],
+	[1, 4, 11, 13, 12, 3, 7, 14, 10, 15, 6, 8, 0, 5, 9, 2],
+	[6, 11, 13, 8, 1, 4, 10, 7, 9, 5, 0, 15, 14, 2, 3, 12]
+	];
 
 	internal override void Execute ()
 	{
@@ -62,7 +63,7 @@ internal class MenuItemTerm_1Lab_5 : MenuItemCore
 
 			else if (input == 1)
 			{
-				OpenFileDialog openFileDialog = new()
+				using OpenFileDialog openFileDialog = new()
 				{
 					Filter = "All files (*.*)|*.*",
 					Title = "Choose a file to encrypt"
@@ -85,7 +86,7 @@ internal class MenuItemTerm_1Lab_5 : MenuItemCore
 			else if (input == 2)
 			{
 				// Открываем диалоговое окно для выбора файла для расшифровки
-				OpenFileDialog openFileDialog = new()
+				using OpenFileDialog openFileDialog = new()
 				{
 					Filter = "All files (*.*)|*.*",
 					Title = "Choose a file to decrypt"
@@ -116,7 +117,7 @@ internal class MenuItemTerm_1Lab_5 : MenuItemCore
 	}
 
 	// Функция для шифрования данных
-	private static BitArray EncryptData (byte [,] sBlockArray, BitArray InputBits, int a, int b)
+	private static BitArray EncryptData (byte [] [] sBlockArray, BitArray InputBits, int a, int b)
 	{
 		// Создаем новый BitArray для хранения зашифрованных данных с тем же размером, что и входные данные
 		BitArray OutputBits = new(InputBits.Count);
@@ -141,7 +142,7 @@ internal class MenuItemTerm_1Lab_5 : MenuItemCore
 			column >>= 1; // компенсируем лишний сдвиг
 
 			// Получаем значение из S-блока, используя рассчитанные row и column
-			BitArray BlockValue = new(new byte [] { sBlockArray [row, column] });
+			BitArray BlockValue = new(new byte [] { sBlockArray [row] [column] });
 
 			// Записываем биты a и b в выходной BitArray
 			OutputBits [i + 0] = InputBits [i + a];
@@ -164,7 +165,7 @@ internal class MenuItemTerm_1Lab_5 : MenuItemCore
 	}
 
 	// Функция для дешифрования данных
-	private static BitArray DecryptData (byte [,] sBlockArray, BitArray InputBits, int a, int b)
+	private static BitArray DecryptData (byte [] [] sBlockArray, BitArray InputBits, int a, int b)
 	{
 		// Создаем новый BitArray для хранения расшифрованных данных с тем же размером, что и входные данные
 		BitArray OutputBits = new(InputBits.Count);
@@ -205,12 +206,12 @@ internal class MenuItemTerm_1Lab_5 : MenuItemCore
 	}
 
 	// Функция которая возвращает значение в таблице в виде байта
-	private static byte FindValue (byte [,] sBlockArray, int row, int value)
+	private static byte FindValue (byte [] [] sBlockArray, int row, int value)
 	{
 		int sBlockCols = sBlockArray.Length / (sBlockArray.GetUpperBound(0) + 1); // 16
 		for (byte i = 0; i < sBlockCols; i++)
 		{
-			if (sBlockArray [row, i] == value)
+			if (sBlockArray [row] [i] == value)
 			{
 				return i;
 			}

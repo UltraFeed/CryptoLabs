@@ -1,4 +1,5 @@
-﻿#pragma warning disable IDE0058
+﻿#pragma warning disable CA1303
+#pragma warning disable IDE0058
 
 using System.Collections;
 using System.Numerics;

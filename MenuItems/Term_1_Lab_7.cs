@@ -1,4 +1,5 @@
-﻿#pragma warning disable IDE0058
+﻿#pragma warning disable CA1303
+#pragma warning disable IDE0058
 #pragma warning disable SYSLIB1045
 
 using System.Text.RegularExpressions;
@@ -8,7 +9,7 @@ using OxyPlot.WindowsForms;
 
 namespace CryptoLabs.MenuItems;
 
-internal class MenuItemTerm_1Lab_7 : MenuItemCore
+internal sealed class MenuItemTerm_1Lab_7 : MenuItemCore
 {
 	internal override string Title => $"Entropy calculator";
 

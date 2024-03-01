@@ -1,11 +1,12 @@
-﻿#pragma warning disable CA1861
+﻿#pragma warning disable CA1303
+#pragma warning disable CA1861
 #pragma warning disable CS8604
 
 using System.Collections;
 
 namespace CryptoLabs.MenuItems;
 
-internal class MenuItemTerm_2Lab_3 : MenuItemCore
+internal sealed class MenuItemTerm_2Lab_3 : MenuItemCore
 {
 	internal override string Title => $"Gamma cipher";
 
@@ -37,7 +38,7 @@ internal class MenuItemTerm_2Lab_3 : MenuItemCore
 
 			else if (input == 1)
 			{
-				OpenFileDialog openFileDialog = new()
+				using OpenFileDialog openFileDialog = new()
 				{
 					Filter = "Text files (*.txt)|*.txt",
 					Title = "Choose a file to decrypt"

@@ -1,4 +1,6 @@
-﻿using CryptoLabs.MenuItems;
+﻿#pragma warning disable CA1303
+
+using CryptoLabs.MenuItems;
 
 namespace CryptoLabs;
 internal static class Program
