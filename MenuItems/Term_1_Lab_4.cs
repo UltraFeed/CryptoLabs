@@ -87,6 +87,7 @@ internal sealed class MenuItemTerm_1Lab_4 : MenuItemCore
 	}
 }
 
+#pragma warning disable CA1812
 internal sealed class MenuItemTerm_1Lab_4_old : MenuItemCore
 {
 	internal override string Title => $"Transposition cipher bruteforce";
