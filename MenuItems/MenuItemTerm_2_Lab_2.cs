@@ -67,24 +67,9 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 					zeroCount++;
 				}
 			}
-		} while (!AreEqual(currentState, seed));
-		//}while(!Equals(lfsr, seed));
+			}while (!seed.Cast<bool>().SequenceEqual(currentState.Cast<bool>()));
 
 		return [steps += 1, zeroCount, (seed.Length * steps) - zeroCount, evenCount, steps - evenCount];
-	}
-
-	private static bool AreEqual (BitArray bitArray1, BitArray bitArray2)
-	{
-		for (int i = 0; i < bitArray1.Length; i++)
-		{
-			// Если хотя бы один элемент не совпадает, возвращаем false
-			if (bitArray1 [i] != bitArray2 [i])
-			{
-				return false;
-			}
-		}
-
-		return true;
 	}
 
 	private static BigInteger GetBigIntFromBitArray (BitArray bitArray)

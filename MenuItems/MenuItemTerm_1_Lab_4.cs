@@ -126,7 +126,7 @@ internal sealed class MenuItemTerm_1_Lab_4_old : MenuItemCore
 		for (int a = 1; a < alphabet.Length; a++)
 		{
 			// Вычисляем обратное значение 'a' по модулю длины алфавита
-			int modInverseA = ModInverse(a, alphabet.Length);
+			int modInverseA = Utilities.ModInverse(a, alphabet.Length);
 
 			// Если обратное значение 'a' равно -1, пропускаем это значение 'a'
 			if (modInverseA == -1)
@@ -170,19 +170,5 @@ internal sealed class MenuItemTerm_1_Lab_4_old : MenuItemCore
 				}
 			}
 		}
-	}
-
-	// Функция для нахождения обратного элемента по модулю m
-	private static int ModInverse (int a, int m)
-	{
-		for (int i = 0; i < m; i++)
-		{
-			if (a * i % m == 1)
-			{
-				return i;
-			}
-		}
-
-		return -1;
 	}
 }
