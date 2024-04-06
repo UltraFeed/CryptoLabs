@@ -23,6 +23,9 @@ internal static class Program
 		Menu.AddItem(new MenuItemTerm_2_Lab_2());
 		Menu.AddItem(new MenuItemTerm_2_Lab_3());
 		Menu.AddItem(new MenuItemTerm_2_Lab_4());
+		Menu.AddItem(new MenuItemTerm_2_Lab_5());
+		Menu.AddItem(new MenuItemTerm_2_Lab_6());
+		Menu.AddItem(new MenuItemTerm_2_Lab_7());
 
 		while (true)
 		{
