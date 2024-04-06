@@ -11,11 +11,9 @@ internal static class Utilities
 {
 	internal static void WaitForKey ()
 	{
-
-		Console.WriteLine("Press Enter To Continue");
+		Console.Write("Press Enter To Continue");
 		_ = Console.ReadLine();
 		Console.Clear();
-
 	}
 
 	internal static int GetInt (string message, int defaultValue = 0)

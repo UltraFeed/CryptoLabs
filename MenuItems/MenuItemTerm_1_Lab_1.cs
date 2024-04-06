@@ -5,7 +5,7 @@ using System.Numerics;
 
 namespace CryptoLabs.MenuItems;
 
-internal sealed class MenuItemTerm_1Lab_1 : MenuItemCore
+internal sealed class MenuItemTerm_1_Lab_1 : MenuItemCore
 {
 	internal override string Title => $"Affine cipher bruteforce";
 

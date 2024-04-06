@@ -3,7 +3,7 @@
 
 namespace CryptoLabs.MenuItems;
 
-internal sealed class MenuItemTerm_1Lab_6 : MenuItemCore
+internal sealed class MenuItemTerm_1_Lab_6 : MenuItemCore
 {
 	private static readonly byte [] keys = [1, 2, 3, 4, 5, 0];
 

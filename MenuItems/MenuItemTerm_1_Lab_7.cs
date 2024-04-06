@@ -9,7 +9,7 @@ using OxyPlot.WindowsForms;
 
 namespace CryptoLabs.MenuItems;
 
-internal sealed class MenuItemTerm_1Lab_7 : MenuItemCore
+internal sealed class MenuItemTerm_1_Lab_7 : MenuItemCore
 {
 	internal override string Title => $"Entropy calculator";
 

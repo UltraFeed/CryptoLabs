@@ -12,16 +12,17 @@ internal static class Program
 		Menu.ClearItems();
 		Menu.AddItem(new MenuItemExit());
 
-		Menu.AddItem(new MenuItemTerm_1Lab_1());
-		Menu.AddItem(new MenuItemTerm_1Lab_2());
-		Menu.AddItem(new MenuItemTerm_1Lab_4());
-		Menu.AddItem(new MenuItemTerm_1Lab_5());
-		Menu.AddItem(new MenuItemTerm_1Lab_6());
-		Menu.AddItem(new MenuItemTerm_1Lab_7());
+		Menu.AddItem(new MenuItemTerm_1_Lab_1());
+		Menu.AddItem(new MenuItemTerm_1_Lab_2());
+		Menu.AddItem(new MenuItemTerm_1_Lab_4());
+		Menu.AddItem(new MenuItemTerm_1_Lab_5());
+		Menu.AddItem(new MenuItemTerm_1_Lab_6());
+		Menu.AddItem(new MenuItemTerm_1_Lab_7());
 
-		Menu.AddItem(new MenuItemTerm_2Lab_1());
-		Menu.AddItem(new MenuItemTerm_2Lab_2());
-		Menu.AddItem(new MenuItemTerm_2Lab_3());
+		Menu.AddItem(new MenuItemTerm_2_Lab_1());
+		Menu.AddItem(new MenuItemTerm_2_Lab_2());
+		Menu.AddItem(new MenuItemTerm_2_Lab_3());
+		Menu.AddItem(new MenuItemTerm_2_Lab_4());
 
 		while (true)
 		{

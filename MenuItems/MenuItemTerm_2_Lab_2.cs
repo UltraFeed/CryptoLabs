@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CryptoLabs.MenuItems;
 
-internal sealed class MenuItemTerm_2Lab_2 : MenuItemCore
+internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 {
 	internal override string Title => $"Linear feedback shift register";
 

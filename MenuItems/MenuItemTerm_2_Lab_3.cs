@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace CryptoLabs.MenuItems;
 
-internal sealed class MenuItemTerm_2Lab_3 : MenuItemCore
+internal sealed class MenuItemTerm_2_Lab_3 : MenuItemCore
 {
 	internal override string Title => $"Gamma cipher";
 

@@ -1,6 +1,6 @@
 ﻿namespace CryptoLabs.MenuItems;
 
-internal sealed class MenuItemTerm_2Lab_1 : MenuItemCore
+internal sealed class MenuItemTerm_2_Lab_1 : MenuItemCore
 {
 
 	internal override string Title => $"Linear congruential generator";

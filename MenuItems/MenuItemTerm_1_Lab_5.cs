@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace CryptoLabs.MenuItems;
 
-internal sealed class MenuItemTerm_1Lab_5 : MenuItemCore
+internal sealed class MenuItemTerm_1_Lab_5 : MenuItemCore
 {
 	internal override string Title => $"S-box";
 

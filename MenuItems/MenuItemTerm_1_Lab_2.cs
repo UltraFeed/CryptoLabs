@@ -4,7 +4,7 @@
 
 namespace CryptoLabs.MenuItems;
 
-internal sealed class MenuItemTerm_1Lab_2 : MenuItemCore
+internal sealed class MenuItemTerm_1_Lab_2 : MenuItemCore
 {
 	internal override string Title => $"Transposition cipher";
 
