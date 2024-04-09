@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 namespace CryptoLabs.MenuItems;
 internal sealed class MenuItemTerm_2_Lab_6 : MenuItemCore
 {
-	internal override string Title => $"ElGamalSignature";
+	internal override string Title => $"El Gamal Signature";
 	// Заданные параметры
 	private static int p = 23; // простое число p
 	private static int g = 5; // примитивное по модулю p число g
@@ -43,30 +43,6 @@ internal sealed class MenuItemTerm_2_Lab_6 : MenuItemCore
 			rng.GetBytes(randomNumber);
 			result = Math.Abs(BitConverter.ToInt32(randomNumber, 0) % (m - 2)) + 2; // Диапазон [2, m)
 		} while (BigInteger.GreatestCommonDivisor(result, m) != 1);
-
-		return result;
-	}
-
-	// Алгоритм быстрого возведения в степень по модулю
-	private static int ModPow (int value, int exponent, int modulus)
-	{
-		if (modulus == 1)
-		{
-			return 0;
-		}
-
-		int result = 1;
-		value %= modulus;
-		while (exponent > 0)
-		{
-			if (exponent % 2 == 1)
-			{
-				result = result * value % modulus;
-			}
-
-			exponent >>= 1;
-			value = value * value % modulus;
-		}
 
 		return result;
 	}
@@ -126,5 +102,29 @@ internal sealed class MenuItemTerm_2_Lab_6 : MenuItemCore
 		}
 
 		return remainder & ((1 << (genLength - 1)) - 1); // Получение CRC
+	}
+
+	// Алгоритм быстрого возведения в степень по модулю
+	private static int ModPow (int value, int exponent, int modulus)
+	{
+		if (modulus == 1)
+		{
+			return 0;
+		}
+
+		int result = 1;
+		value %= modulus;
+		while (exponent > 0)
+		{
+			if (exponent % 2 == 1)
+			{
+				result = result * value % modulus;
+			}
+
+			exponent >>= 1;
+			value = value * value % modulus;
+		}
+
+		return result;
 	}
 }
