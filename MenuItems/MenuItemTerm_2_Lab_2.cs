@@ -67,7 +67,7 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 					zeroCount++;
 				}
 			}
-			}while (!seed.Cast<bool>().SequenceEqual(currentState.Cast<bool>()));
+		} while (!seed.Cast<bool>().SequenceEqual(currentState.Cast<bool>()));
 
 		return [steps += 1, zeroCount, (seed.Length * steps) - zeroCount, evenCount, steps - evenCount];
 	}
@@ -132,7 +132,7 @@ internal sealed class LFSR
 	}
 
 	// Метод для вычисления XOR битов
-	public static BitArray XORBits (BitArray baseBits, BitArray polynomial)
+	private static BitArray XORBits (BitArray baseBits, BitArray polynomial)
 	{
 		BitArray result = new(polynomial.Length);
 		bool? bit = null;
@@ -155,27 +155,5 @@ internal sealed class LFSR
 
 		result [0] = (bit & true) == true;
 		return result;
-	}
-
-	// Метод для замены первого бита
-	public static BitArray ReplaceFirstBit (BitArray bitArray, bool bit)
-	{
-		BitArray result = new(bitArray.Length);
-
-		// Копируем все биты, кроме первого
-		for (int i = 1; i < bitArray.Length; i++)
-		{
-			result [i] = bitArray [i];
-		}
-
-		// Устанавливаем первый бит в соответствии с переданным значением
-		result [0] = bit;
-
-		return result;
-	}
-
-	public static BitArray Shift (BitArray _base)
-	{
-		return _base.RightShift(1);
 	}
 }
