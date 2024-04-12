@@ -101,20 +101,20 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 internal sealed class LFSR
 {
 	// Полином, определяющий характеристики генератора
-	public BitArray Polynomial { get; set; }
+	internal BitArray Polynomial { get; set; }
 
 	// Начальное состояние регистра
-	public BitArray Seed { get; set; }
+	internal BitArray Seed { get; set; }
 
 	// Метод для инициализации LFSR с указанными начальным состоянием и полиномом
-	public void Init (BitArray _seed, BitArray _polynomial)
+	internal void Init (BitArray _seed, BitArray _polynomial)
 	{
 		Polynomial = _polynomial;
 		Seed = _seed;
 	}
 
 	// Метод для генерации следующего состояния на основе текущего состояния
-	public BitArray GenerateNextState (BitArray currentState)
+	internal BitArray GenerateNextState (BitArray currentState)
 	{
 		BitArray nextState = new(currentState.Length);
 
