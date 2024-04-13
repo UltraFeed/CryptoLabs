@@ -1,6 +1,4 @@
-﻿#pragma warning disable CA1303
-
-using System.Numerics;
+﻿using System.Numerics;
 using System.Security.Cryptography;
 
 namespace CryptoLabs.MenuItems;
