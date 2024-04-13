@@ -60,7 +60,7 @@ internal sealed class MenuItemTerm_2_Lab_5 : MenuItemCore
 		return array;
 	}
 
-	private static bool [] CalculateCRC (bool [] b, bool [] key)
+	internal static bool [] CalculateCRC (bool [] b, bool [] key)
 	{
 		b = b.Concat(new bool [3]).ToArray(); // Добавление трех нулей в конце
 

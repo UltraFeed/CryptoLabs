@@ -31,7 +31,7 @@ internal sealed class MenuItemTerm_2_Lab_7 : MenuItemCore
 	}
 
 	// Функция для факторизации числа N на простые множители p и q
-	private static (BigInteger, BigInteger) Factorize (BigInteger N)
+	private static (BigInteger p, BigInteger q) Factorize (BigInteger N)
 	{
 		for (BigInteger i = 2; i < N; i++)
 		{
