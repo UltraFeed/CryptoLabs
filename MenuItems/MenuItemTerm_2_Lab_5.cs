@@ -14,7 +14,7 @@ internal sealed class MenuItemTerm_2_Lab_5 : MenuItemCore
 
 		for (int i = 0; i < 256; i++)
 		{
-			mass [i] = CalculateCRC(ByteToBoolArray((byte) i), mask);
+			mass [i] = CalculateCRC(Utilities.ByteToBoolArray((byte) i), mask);
 		}
 
 		// Хранит результаты хеша и соответствующие числа
@@ -45,19 +45,8 @@ internal sealed class MenuItemTerm_2_Lab_5 : MenuItemCore
 			}
 		}
 
-		Console.WriteLine($"CRC for byte {srcByte} and mask {string.Join("", mask.Select(b => b ? 1 : 0))} is {string.Join("", CalculateCRC(ByteToBoolArray(srcByte), mask).Select(b => b ? 1 : 0))}");
+		Console.WriteLine($"CRC for byte {srcByte} and mask {string.Join("", mask.Select(b => b ? 1 : 0))} is {string.Join("", CalculateCRC(Utilities.ByteToBoolArray(srcByte), mask).Select(b => b ? 1 : 0))}");
 		Utilities.WaitForKey();
-	}
-
-	private static bool [] ByteToBoolArray (byte data)
-	{
-		bool [] array = new bool [8];
-		for (int i = 0; i < 8; i++)
-		{
-			array [i] = ((data >> (7 - i)) & 1) == 1;
-		}
-
-		return array;
 	}
 
 	internal static bool [] CalculateCRC (bool [] b, bool [] key)

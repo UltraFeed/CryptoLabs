@@ -49,6 +49,13 @@ internal static class Utilities
 		return sb.ToString();
 	}
 
+	internal static bool [] ByteToBoolArray (byte data)
+	{
+		return Enumerable.Range(0, 8)
+						 .Select(i => ((data >> i) & 1) == 1)
+						 .ToArray();
+	}
+
 	// Функция нахождения обратного элемента по модулю (расширенный алгоритм Евклида)
 	internal static BigInteger ModInverse (BigInteger a, BigInteger m)
 	{

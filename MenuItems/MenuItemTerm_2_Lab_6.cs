@@ -31,7 +31,7 @@ internal sealed class MenuItemTerm_2_Lab_6 : MenuItemCore
 
 	private static (int r, int s) CreateSignature (int p, int g, int x, bool [] crcKey, byte message)
 	{
-		byte hash = ConvertBoolArrayToByte(MenuItemTerm_2_Lab_5.CalculateCRC(ConvertByteToBoolArray(message), crcKey)); // Получение значения ХЭШ-функции
+		byte hash = BoolArrayToByte(MenuItemTerm_2_Lab_5.CalculateCRC(Utilities.ByteToBoolArray(message), crcKey)); // Получение значения ХЭШ-функции
 		int randomK = GenerateRandomCoprime(p);
 		int r = (int) BigInteger.ModPow(g, randomK, p);
 		int u = (hash - (x * r)) % (p - 1);
@@ -47,24 +47,12 @@ internal sealed class MenuItemTerm_2_Lab_6 : MenuItemCore
 
 	private static bool VerifySignature (int p, int g, int y, bool [] crcKey, byte message, int r, int s)
 	{
-		byte hash = ConvertBoolArrayToByte(MenuItemTerm_2_Lab_5.CalculateCRC(ConvertByteToBoolArray(message), crcKey)); // Получение значения ХЭШ-функции
+		byte hash = BoolArrayToByte(MenuItemTerm_2_Lab_5.CalculateCRC(Utilities.ByteToBoolArray(message), crcKey)); // Получение значения ХЭШ-функции
 
 		return (BigInteger.ModPow(y, r, p) * BigInteger.ModPow(r, s, p) % p).Equals(BigInteger.ModPow(g, hash, p));
 	}
 
-	private static bool [] ConvertByteToBoolArray (byte b)
-	{
-		bool [] result = new bool [8];
-		for (int i = 0; i < 8; i++)
-		{
-			result [i] = (b & (1 << i)) != 0;
-		}
-
-		Array.Reverse(result);
-		return result;
-	}
-
-	private static byte ConvertBoolArrayToByte (bool [] source)
+	private static byte BoolArrayToByte (bool [] source)
 	{
 		byte result = 0;
 		int index = 8 - source.Length;

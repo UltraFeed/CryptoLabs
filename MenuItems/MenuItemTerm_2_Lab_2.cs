@@ -52,7 +52,7 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 			steps++;
 
 			// Подсчет количества четных и нечетных чисел при однобайтовом представлении
-			BigInteger currentStateBigInt = GetBigIntFromBitArray(currentState);
+			BigInteger currentStateBigInt = BitArrayToBigInt(currentState);
 			if (currentStateBigInt % 2 == 0)
 			{
 				evenCount++;
@@ -71,7 +71,7 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 		return [steps += 1, zeroCount, (seed.Length * steps) - zeroCount, evenCount, steps - evenCount];
 	}
 
-	private static BigInteger GetBigIntFromBitArray (BitArray bitArray)
+	private static BigInteger BitArrayToBigInt (BitArray bitArray)
 	{
 		BigInteger result = 0;
 		for (int i = 0; i < bitArray.Length; i++)
