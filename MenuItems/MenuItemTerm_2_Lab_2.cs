@@ -3,7 +3,6 @@
 
 using System.Collections;
 using System.Numerics;
-using System.Text;
 
 namespace CryptoLabs.MenuItems;
 
@@ -28,7 +27,7 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 		// Определяем интересующие нас данные
 		int [] results = GetPeriodInfo(lfsr, seed);
 
-		Console.WriteLine($"{ToBitString(seed)} - initial state");
+		Console.WriteLine($"{Utilities.BitArrayToString(seed)} - initial state");
 		Console.WriteLine($"Generator period length: {results [0]}");
 		Console.WriteLine($"Number of zeros in one period in bits: {results [1]}");
 		Console.WriteLine($"Number of ones in one period in bits: {results [2]}");
@@ -49,7 +48,7 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 		do
 		{
 			currentState = lfsr.GenerateNextState(currentState);
-			Console.WriteLine(ToBitString(currentState));
+			Console.WriteLine(Utilities.BitArrayToString(currentState));
 			steps++;
 
 			// Подсчет количества четных и нечетных чисел при однобайтовом представлении
@@ -84,18 +83,6 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 		}
 
 		return result;
-	}
-
-	private static string ToBitString (BitArray bits)
-	{
-		StringBuilder sb = new(bits.Length);
-
-		foreach (bool bit in bits)
-		{
-			_ = sb.Append(bit ? '1' : '0');
-		}
-
-		return sb.ToString();
 	}
 }
 internal sealed class LFSR

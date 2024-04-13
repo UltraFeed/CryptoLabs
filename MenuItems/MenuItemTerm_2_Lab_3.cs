@@ -3,7 +3,6 @@
 #pragma warning disable CS8604
 
 using System.Collections;
-using System.Text;
 
 namespace CryptoLabs.MenuItems;
 
@@ -26,8 +25,8 @@ internal sealed class MenuItemTerm_2_Lab_3 : MenuItemCore
 			Console.WriteLine($"Gamma cipher");
 			Console.WriteLine($"0. Exit");
 			Console.WriteLine($"1. Encrypt/Decrypt");
-			Console.WriteLine($"{nameof(seed)} = {BitArrayToString(seed)}");
-			Console.WriteLine($"{nameof(polynomial)} = {BitArrayToString(polynomial)}");
+			Console.WriteLine($"{nameof(seed)} = {Utilities.BitArrayToString(seed)}");
+			Console.WriteLine($"{nameof(polynomial)} = {Utilities.BitArrayToString(polynomial)}");
 
 			int input = Utilities.GetInt($"{nameof(input)} In Range (0-1): ");
 
@@ -109,16 +108,5 @@ internal sealed class MenuItemTerm_2_Lab_3 : MenuItemCore
 		byte [] bytes = new byte [1];
 		bits.CopyTo(bytes, 0);
 		return bytes [0];
-	}
-
-	internal static string BitArrayToString (BitArray array)
-	{
-		StringBuilder sb = new();
-		for (int i = 0; i < array.Length; i++)
-		{
-			_ = sb.Append(array [i] ? "1" : "0");
-		}
-
-		return sb.ToString();
 	}
 }
