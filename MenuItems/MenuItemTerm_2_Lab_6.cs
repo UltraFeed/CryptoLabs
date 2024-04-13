@@ -32,7 +32,7 @@ internal sealed class MenuItemTerm_2_Lab_6 : MenuItemCore
 	}
 
 	// Генерация случайного числа, взаимно простого с m
-	private static int GenerateRandomCoprime (int m)
+	private static int GenerateRandomCoprime (int number)
 	{
 		using RandomNumberGenerator rng = RandomNumberGenerator.Create();
 		byte [] randomNumber = new byte [4]; // Длина в байтах для int
@@ -41,8 +41,8 @@ internal sealed class MenuItemTerm_2_Lab_6 : MenuItemCore
 		do
 		{
 			rng.GetBytes(randomNumber);
-			result = Math.Abs(BitConverter.ToInt32(randomNumber, 0) % (m - 2)) + 2; // Диапазон [2, m)
-		} while (BigInteger.GreatestCommonDivisor(result, m) != 1);
+			result = Math.Abs(BitConverter.ToInt32(randomNumber, 0) % (number - 2)) + 2; // Диапазон [2, m)
+		} while (BigInteger.GreatestCommonDivisor(result, number) != 1);
 
 		return result;
 	}

@@ -1,9 +1,6 @@
 ﻿#pragma warning disable CA1303
-#pragma warning disable IDE0058
 
-using System.Collections;
 using System.Numerics;
-using System.Text;
 
 namespace CryptoLabs;
 
@@ -37,17 +34,6 @@ internal static class Utilities
 
 			Console.WriteLine("Parsing Error. Enter Other Value. Format Int32: ");
 		}
-	}
-
-	internal static string BitArrayToString (BitArray array)
-	{
-		StringBuilder sb = new();
-		for (int i = 0; i < array.Length; i++)
-		{
-			sb.Append(array [i] ? "1" : "0");
-		}
-
-		return sb.ToString();
 	}
 
 	// Функция нахождения обратного элемента по модулю (расширенный алгоритм Евклида)
