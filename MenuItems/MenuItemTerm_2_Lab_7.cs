@@ -30,20 +30,19 @@ internal sealed class MenuItemTerm_2_Lab_7 : MenuItemCore
 		Utilities.WaitForKey();
 	}
 
-	// Функция для факторизации числа N на простые множители p и q
+	// Факторизация методом Ферма
 	private static (BigInteger p, BigInteger q) Factorize (BigInteger N)
 	{
-		for (BigInteger i = 2; i < N; i++)
+		BigInteger a = (int) Math.Sqrt((int) N) + 1;
+		BigInteger b2 = (a * a) - N;
+		while (!((int) Math.Sqrt((int) b2) * (int) Math.Sqrt((int) b2) == b2))
 		{
-			if (N % i == 0)
-			{
-				BigInteger p = i;
-				BigInteger q = N / i;
-				return (p, q);
-			}
+			a++;
+			b2 = (a * a) - N;
 		}
-		// Если не найдены простые множители, выдаем ошибку
-		throw new ArgumentException($"Невозможно факторизовать {nameof(N)}");
+
+		BigInteger b = (int) Math.Sqrt((int) b2);
+		return (a - b, a + b);
 	}
 
 	// Функция для расчета закрытого ключа (d) по открытому ключу (e), простым множителям (p и q)
