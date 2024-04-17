@@ -33,16 +33,16 @@ internal sealed class MenuItemTerm_2_Lab_7 : MenuItemCore
 	// Факторизация методом Ферма
 	private static (BigInteger p, BigInteger q) Factorize (BigInteger N)
 	{
-		BigInteger a = (int) Math.Sqrt((int) N) + 1;
-		BigInteger b2 = (a * a) - N;
+		BigInteger p = (int) Math.Sqrt((int) N) + 1;
+		BigInteger b2 = (p * p) - N;
 		while (!((int) Math.Sqrt((int) b2) * (int) Math.Sqrt((int) b2) == b2))
 		{
-			a++;
-			b2 = (a * a) - N;
+			p++;
+			b2 = (p * p) - N;
 		}
 
-		BigInteger b = (int) Math.Sqrt((int) b2);
-		return (a - b, a + b);
+		BigInteger q = (int) Math.Sqrt((int) b2);
+		return (p - q, p + q);
 	}
 
 	// Функция для расчета закрытого ключа (d) по открытому ключу (e), простым множителям (p и q)
