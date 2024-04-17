@@ -33,16 +33,44 @@ internal sealed class MenuItemTerm_2_Lab_7 : MenuItemCore
 	// Факторизация методом Ферма
 	private static (BigInteger p, BigInteger q) Factorize (BigInteger N)
 	{
-		BigInteger p = (int) Math.Sqrt((int) N) + 1;
+		BigInteger p = Sqrt(N) + 1;
 		BigInteger b2 = (p * p) - N;
-		while (!((int) Math.Sqrt((int) b2) * (int) Math.Sqrt((int) b2) == b2))
+		BigInteger sqrt_b2 = Sqrt(b2);
+
+		while (sqrt_b2 * sqrt_b2 != b2)
 		{
 			p++;
 			b2 = (p * p) - N;
+			sqrt_b2 = Sqrt(b2);
 		}
 
-		BigInteger q = (int) Math.Sqrt((int) b2);
+		BigInteger q = sqrt_b2;
 		return (p - q, p + q);
+	}
+
+	// Метод для вычисления квадратного корня для BigInteger
+	private static BigInteger Sqrt (BigInteger n)
+	{
+		if (n == 0)
+		{
+			return 0;
+		}
+
+		if (n == 1)
+		{
+			return 1;
+		}
+
+		BigInteger root = n / 2;
+		BigInteger lastRoot;
+
+		do
+		{
+			lastRoot = root;
+			root = (root + (n / root)) / 2;
+		} while (root < lastRoot);
+
+		return lastRoot;
 	}
 
 	// Функция для расчета закрытого ключа (d) по открытому ключу (e), простым множителям (p и q)
