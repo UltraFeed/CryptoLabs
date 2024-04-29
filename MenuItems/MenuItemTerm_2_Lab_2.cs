@@ -12,6 +12,8 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 
 	internal override void Execute ()
 	{
+		Console.Clear();
+
 		// Создаем объект класса LFSR
 		LFSR lfsr = new();
 
@@ -25,26 +27,26 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 		lfsr.Init(seed, polynomial);
 
 		// Определяем интересующие нас данные
-		int [] results = GetPeriodInfo(lfsr, seed);
+		(int stepsCount, int zeroCount, int oneCount, int evenCount, int oddCount) = GetPeriodInfo(lfsr, seed);
 
 		Console.WriteLine($"{Utilities.BitArrayToString(seed)} - initial state");
-		Console.WriteLine($"Generator period length: {results [0]}");
-		Console.WriteLine($"Number of zeros in one period in bits: {results [1]}");
-		Console.WriteLine($"Number of ones in one period in bits: {results [2]}");
-		Console.WriteLine($"Number of even numbers in one period: {results [3]}");
-		Console.WriteLine($"Number of odd numbers in one period: {results [4]}");
+		Console.WriteLine($"Generator period length: {stepsCount}");
+		Console.WriteLine($"Number of zeros in one period in bits: {zeroCount}");
+		Console.WriteLine($"Number of ones in one period in bits: {oneCount}");
+		Console.WriteLine($"Number of even numbers in one period: {evenCount}");
+		Console.WriteLine($"Number of odd numbers in one period: {oddCount}");
 
 		Utilities.WaitForKey();
 	}
 
 	// Метод для определения длины периода
-	private static int [] GetPeriodInfo (LFSR lfsr, BitArray seed)
+	private static (int stepsCount, int zeroCount, int oneCount, int evenCount, int oddCount) GetPeriodInfo (LFSR lfsr, BitArray seed)
 	{
 		BitArray currentState = seed;
 		int steps = 0;
 		int evenCount = 0;
 		int zeroCount = 0;
-
+		Console.WriteLine(Utilities.BitArrayToString(seed));
 		do
 		{
 			currentState = lfsr.GenerateNextState(currentState);
@@ -68,7 +70,7 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 			}
 		} while (!seed.Cast<bool>().SequenceEqual(currentState.Cast<bool>()));
 
-		return [steps += 1, zeroCount, (seed.Length * steps) - zeroCount, evenCount, steps - evenCount];
+		return (steps += 1, zeroCount, (seed.Length * steps) - zeroCount, evenCount, steps - evenCount);
 	}
 
 	private static BigInteger BitArrayToBigInt (BitArray bitArray)
