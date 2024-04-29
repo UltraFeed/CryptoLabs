@@ -43,7 +43,7 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 	private static (int stepsCount, int zeroCount, int oneCount, int evenCount, int oddCount) GetPeriodInfo (LFSR lfsr, BitArray seed)
 	{
 		BitArray currentState = seed;
-		int steps = 0;
+		int stepsCount = 0;
 		int evenCount = 0;
 		int zeroCount = 0;
 		Console.WriteLine(Utilities.BitArrayToString(seed));
@@ -51,7 +51,7 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 		{
 			currentState = lfsr.GenerateNextState(currentState);
 			Console.WriteLine(Utilities.BitArrayToString(currentState));
-			steps++;
+			stepsCount++;
 
 			// Подсчет количества четных и нечетных чисел при однобайтовом представлении
 			BigInteger currentStateBigInt = BitArrayToBigInt(currentState);
@@ -70,7 +70,7 @@ internal sealed class MenuItemTerm_2_Lab_2 : MenuItemCore
 			}
 		} while (!seed.Cast<bool>().SequenceEqual(currentState.Cast<bool>()));
 
-		return (steps += 1, zeroCount, (seed.Length * steps) - zeroCount, evenCount, steps - evenCount);
+		return (stepsCount += 1, zeroCount, (seed.Length * stepsCount) - zeroCount, evenCount, stepsCount - evenCount);
 	}
 
 	private static BigInteger BitArrayToBigInt (BitArray bitArray)
