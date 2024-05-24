@@ -56,9 +56,9 @@ internal sealed class MenuItemTerm_2_Lab_6 : MenuItemCore
 	{
 		byte result = 0;
 		int index = 8 - source.Length;
-		foreach (bool b in source)
+		foreach (bool bit in source)
 		{
-			if (b)
+			if (bit)
 			{
 				result |= (byte) (1 << (7 - index));
 			}
