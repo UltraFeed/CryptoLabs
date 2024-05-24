@@ -1,7 +1,5 @@
 ﻿#pragma warning disable CA1303
-#pragma warning disable CA1304
 #pragma warning disable CA1305
-#pragma warning disable CA1311
 
 using System.Numerics;
 
@@ -19,7 +17,7 @@ internal sealed class MenuItemTerm_2_Lab_4 : MenuItemCore
 		BigInteger n = p * q; // Используется в качестве модуля при шифровании и дешифровании
 
 		// Исходный текст
-		string plaintext = "Привет Мир".ToUpper(); // Приводим все буквы к заглавным
+		string plaintext = "Привет Мир".ToUpperInvariant(); // Приводим все буквы к заглавным
 
 		// Генерация нескольких пар ключей
 		List<KeyPair> keyPairs = GenerateKeyPairs(p, q, 3);
