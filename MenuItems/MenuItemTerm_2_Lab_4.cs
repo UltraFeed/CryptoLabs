@@ -1,6 +1,6 @@
 ﻿#pragma warning disable CA1303
-#pragma warning disable CA1305
 
+using System.Globalization;
 using System.Numerics;
 
 namespace CryptoLabs.MenuItems;
@@ -132,7 +132,7 @@ internal sealed class MenuItemTerm_2_Lab_4 : MenuItemCore
 		{
 			int number = CharToNumber(c); // Преобразуем символ в число
 			BigInteger encryptedNumber = BigInteger.ModPow(new BigInteger(number), publicKey, n); // Шифруем число
-			encryptedText += encryptedNumber.ToString() + " "; // Добавляем зашифрованное число в зашифрованный текст
+			encryptedText += $"{encryptedNumber} "; // Добавляем зашифрованное число в зашифрованный текст
 		}
 
 		return encryptedText.Trim(); // Удаляем лишние пробелы в конце
@@ -146,7 +146,7 @@ internal sealed class MenuItemTerm_2_Lab_4 : MenuItemCore
 
 		foreach (string num in numbers)
 		{
-			BigInteger decryptedNumber = BigInteger.ModPow(BigInteger.Parse(num), privateKey, n); // Дешифруем число
+			BigInteger decryptedNumber = BigInteger.ModPow(BigInteger.Parse(num, CultureInfo.InvariantCulture), privateKey, n); // Дешифруем число
 			char decryptedChar = NumberToChar((int) decryptedNumber); // Преобразуем число в символ
 			decryptedText += decryptedChar; // Добавляем расшифрованный символ в расшифрованный текст
 		}

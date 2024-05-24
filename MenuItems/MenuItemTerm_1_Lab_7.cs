@@ -1,8 +1,6 @@
 ﻿#pragma warning disable CA1303
-#pragma warning disable IDE0058
-#pragma warning disable SYSLIB1045
 
-using System.Text.RegularExpressions;
+using System.Text;
 using OxyPlot;
 using OxyPlot.Series;
 using OxyPlot.WindowsForms;
@@ -22,7 +20,8 @@ internal sealed class MenuItemTerm_1_Lab_7 : MenuItemCore
 		string sourceString = "Надоело говорить и спорить, И любить усталые глаза... В флибустьерском дальнем море Бригантина подымает паруса... Капитан, обветренный, как скалы, Вышел в море, не дождавшись нас... На прощанье подымай бокалы Золотого терпкого вина.";
 		sourceString = sourceString.ToLower(System.Globalization.CultureInfo.CurrentCulture);
 		Console.WriteLine($"Source string:\n{sourceString}\n");
-		string modifiedString = Regex.Replace(sourceString, "[!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ ]", string.Empty);
+		string modifiedString = RemoveSpecialCharacters(sourceString);
+
 		Console.WriteLine("Modified (without spaces and punctuation marks):");
 		Console.WriteLine(modifiedString);
 		Console.WriteLine();
@@ -61,7 +60,7 @@ internal sealed class MenuItemTerm_1_Lab_7 : MenuItemCore
 		};
 
 		form.Controls.Add(plotView);
-		form.ShowDialog();
+		_ = form.ShowDialog();
 		Utilities.WaitForKey();
 		form.Close();
 	}
@@ -92,5 +91,19 @@ internal sealed class MenuItemTerm_1_Lab_7 : MenuItemCore
 		}
 
 		return val;
+	}
+
+	private static string RemoveSpecialCharacters (string input)
+	{
+		StringBuilder result = new();
+		foreach (char c in input)
+		{
+			if (char.IsLetterOrDigit(c))
+			{
+				_ = result.Append(c);
+			}
+		}
+
+		return result.ToString();
 	}
 }

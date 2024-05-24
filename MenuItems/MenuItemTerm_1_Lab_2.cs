@@ -1,6 +1,7 @@
 ﻿#pragma warning disable CA1303
-#pragma warning disable CA1305
 #pragma warning disable CS8604
+
+using System.Globalization;
 
 namespace CryptoLabs.MenuItems;
 
@@ -22,7 +23,7 @@ internal sealed class MenuItemTerm_1_Lab_2 : MenuItemCore
 			Console.WriteLine($"2. Decrypt");
 			Console.WriteLine($"{nameof(key)} = {key}");
 
-			if (!IsUniqueSixDigits(key.ToString()))
+			if (!IsUniqueSixDigits(key.ToString(CultureInfo.InvariantCulture)))
 			{
 				Console.WriteLine($"{nameof(key)} must contain six unique numbers from {1} to {6}");
 				Utilities.WaitForKey();
