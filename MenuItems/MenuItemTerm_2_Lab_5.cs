@@ -39,8 +39,7 @@ internal sealed class MenuItemTerm_2_Lab_5 : MenuItemCore
 		{
 			if (entry.Value.Count > 1)
 			{
-				Console.WriteLine($"Hash: {entry.Key}, Numbers: ");
-				Console.WriteLine(string.Join(", ", entry.Value));
+				Console.WriteLine($"Hash: {entry.Key}\nNumbers: {string.Join(", ", entry.Value)}");
 				Console.WriteLine();
 			}
 		}
