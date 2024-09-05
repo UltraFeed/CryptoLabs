@@ -18,7 +18,7 @@ internal sealed class MenuItemTerm_1_Lab_7 : MenuItemCore
         Application.SetCompatibleTextRenderingDefault(false);
 
         string sourceString = "Надоело говорить и спорить, И любить усталые глаза... В флибустьерском дальнем море Бригантина подымает паруса... Капитан, обветренный, как скалы, Вышел в море, не дождавшись нас... На прощанье подымай бокалы Золотого терпкого вина.";
-        sourceString = sourceString.ToLower(System.Globalization.CultureInfo.CurrentCulture);
+        sourceString = sourceString.ToUpperInvariant();
         Console.WriteLine($"Source string:\n{sourceString}\n");
         string modifiedString = RemoveSpecialCharacters(sourceString);
 
