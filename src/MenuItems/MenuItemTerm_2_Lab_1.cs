@@ -2,7 +2,6 @@ namespace CryptoLabs.MenuItems;
 
 internal sealed class MenuItemTerm_2_Lab_1 : MenuItemCore
 {
-
 	internal override string Title => $"Linear congruential generator";
 	internal override void Execute ()
 	{
@@ -46,6 +45,7 @@ internal sealed class MenuItemTerm_2_Lab_1 : MenuItemCore
 			for (int i = 0; i < sizeof(int) * 8; i++)
 			{
 				int bit = (current >> i) & 1; // Получение i-го бита числа current
+
 				if (bit == 0)
 				{
 					zeroCount++;

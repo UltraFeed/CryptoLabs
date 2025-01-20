@@ -35,7 +35,6 @@ internal sealed class MenuItemTerm_2_Lab_3 : MenuItemCore
 				Utilities.WaitForKey();
 				break;
 			}
-
 			else if (input == 1)
 			{
 				using OpenFileDialog openFileDialog = new()
@@ -55,14 +54,12 @@ internal sealed class MenuItemTerm_2_Lab_3 : MenuItemCore
 					Console.WriteLine("File encrypted/decrypted");
 				}
 			}
-
 			else
 			{
 				Console.WriteLine("Unknown Input");
 			}
 
 			Utilities.WaitForKey();
-
 		}
 	}
 

@@ -9,7 +9,6 @@ internal static class Program
 	[STAThread]
 	private static void Main ()
 	{
-
 		Menu.ClearItems();
 		Menu.AddItem(new MenuItemExit());
 

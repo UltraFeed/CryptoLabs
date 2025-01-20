@@ -59,7 +59,6 @@ internal sealed class MenuItemTerm_1_Lab_6 : MenuItemCore
 					Console.WriteLine("File encrypted");
 				}
 			}
-
 			else if (input == 2)
 			{
 				// Открываем диалоговое окно для выбора файла для расшифровки
@@ -80,14 +79,12 @@ internal sealed class MenuItemTerm_1_Lab_6 : MenuItemCore
 					Console.WriteLine("File decrypted");
 				}
 			}
-
 			else
 			{
 				Console.WriteLine("Unknown Input");
 			}
 
 			Utilities.WaitForKey();
-
 		}
 	}
 
