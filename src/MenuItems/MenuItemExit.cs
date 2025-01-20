@@ -1,4 +1,4 @@
-﻿namespace CryptoLabs.MenuItems;
+namespace CryptoLabs.MenuItems;
 
 internal sealed class MenuItemExit : MenuItemCore
 {

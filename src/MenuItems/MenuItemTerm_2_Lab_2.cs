@@ -1,4 +1,4 @@
-﻿#pragma warning disable CA1861
+#pragma warning disable CA1861
 #pragma warning disable CS8618
 
 using System.Collections;

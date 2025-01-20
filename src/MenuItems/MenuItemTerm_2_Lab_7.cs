@@ -1,6 +1,7 @@
-﻿using System.Numerics;
+using System.Numerics;
 
 namespace CryptoLabs.MenuItems;
+
 internal sealed class MenuItemTerm_2_Lab_7 : MenuItemCore
 {
 	internal override string Title => $"RSA Bruteforce";

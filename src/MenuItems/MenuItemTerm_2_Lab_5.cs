@@ -1,6 +1,7 @@
-﻿#pragma warning disable IDE0305
+#pragma warning disable IDE0305
 
 namespace CryptoLabs.MenuItems;
+
 internal sealed class MenuItemTerm_2_Lab_5 : MenuItemCore
 {
 	internal override string Title => $"CRC hashes";

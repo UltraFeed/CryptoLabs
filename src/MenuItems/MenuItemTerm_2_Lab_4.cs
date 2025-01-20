@@ -1,9 +1,10 @@
-﻿#pragma warning disable CA1303
+#pragma warning disable CA1303
 
 using System.Globalization;
 using System.Numerics;
 
 namespace CryptoLabs.MenuItems;
+
 internal sealed class MenuItemTerm_2_Lab_4 : MenuItemCore
 {
 	internal override string Title => $"RSA cipher";

@@ -1,7 +1,8 @@
-﻿using System.Numerics;
+using System.Numerics;
 using System.Security.Cryptography;
 
 namespace CryptoLabs.MenuItems;
+
 internal sealed class MenuItemTerm_2_Lab_6 : MenuItemCore
 {
 	internal override string Title => $"El Gamal Signature";
