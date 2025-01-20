@@ -39,7 +39,6 @@ internal sealed class MenuItemTerm_1_Lab_6 : MenuItemCore
 				Utilities.WaitForKey();
 				break;
 			}
-
 			else if (input == 1)
 			{
 				using OpenFileDialog openFileDialog = new()

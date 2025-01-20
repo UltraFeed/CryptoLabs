@@ -109,7 +109,6 @@ internal sealed class MenuItemTerm_1_Lab_5 : MenuItemCore
 			}
 
 			Utilities.WaitForKey();
-
 		}
 	}
 
