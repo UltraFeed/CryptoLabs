@@ -60,7 +60,6 @@ internal sealed class MenuItemTerm_1_Lab_5 : MenuItemCore
 				Utilities.WaitForKey();
 				break;
 			}
-
 			else if (input == 1)
 			{
 				using OpenFileDialog openFileDialog = new()
@@ -82,7 +81,6 @@ internal sealed class MenuItemTerm_1_Lab_5 : MenuItemCore
 					Console.WriteLine("File encrypted");
 				}
 			}
-
 			else if (input == 2)
 			{
 				// Открываем диалоговое окно для выбора файла для расшифровки
@@ -105,7 +103,6 @@ internal sealed class MenuItemTerm_1_Lab_5 : MenuItemCore
 					Console.WriteLine("File decrypted");
 				}
 			}
-
 			else
 			{
 				Console.WriteLine("Unknown Input");
